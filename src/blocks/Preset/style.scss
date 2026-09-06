@@ -1,0 +1,230 @@
+.ytp-presets {
+  display: grid;
+  grid-template-columns: repeat(2, calc(50% - 5px));
+  gap: 10px;
+  margin-bottom: 15px;
+  .ytp-preset-item {
+    row-gap: 10px;
+    position: relative;
+    .box {
+      display: flex;
+      padding: 10px;
+      min-height: 80px;
+      border: 1px solid #ddd;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-direction: column;
+      span {
+        font-size: 50px;
+      }
+    }
+    p {
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .active {
+      border: 2px solid hsl(207, 100%, 52%);
+    }
+    .actions {
+      position: absolute;
+      top: -15px;
+      justify-content: space-between;
+      display: none;
+      gap: 3px;
+      right: 0px;
+      padding: 3px;
+      span {
+        background: #007cba;
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+    &:hover {
+      .actions {
+        display: flex;
+      }
+    }
+  }
+}
+
+.bPlTabPanel {
+  .table-container {
+    border: 1px solid #d1d5db;
+    margin-bottom: 15px;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table th {
+    text-align: left;
+    padding: 12px;
+    font-weight: 500;
+    border-bottom: 1px solid #d1d5db;
+  }
+
+  .data-table td {
+    padding: 12px;
+    border-bottom: 1px solid #d1d5db;
+    width: 70%;
+  }
+
+  .row-alternate {
+    background-color: #f9fafb;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 8px;
+  }
+
+  .action-button {
+    background-color: #0072bc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 16px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .action-button:hover {
+    background-color: #005a96;
+  }
+}
+
+.confirmPresetDelete {
+  display: flex;
+  justify-content: end;
+  column-gap: 10px;
+  align-items: center;
+}
+.ytpPresetModal {
+  width: 100%;
+  max-height: 95%;
+  min-height: 95vh;
+  .components-modal__content:before {
+    margin: 0;
+  }
+  .ytpPreset {
+    display: flex;
+    height: calc(100% - 66px);
+    .options {
+      width: 280px;
+      overflow-y: scroll;
+      padding-bottom: 30px;
+      height: 700px;
+    }
+    .preview {
+      flex: 1;
+      background: #d2d2d2;
+      padding: 15px;
+      overflow-y: scroll;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .ytWrapper {
+        width: 700px;
+        // pointer-events: none;
+        position: relative;
+        height: 393px;
+        .plyr {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .actionsWrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      width: calc(100% - 65px);
+      margin: 0 auto;
+    }
+  }
+}
+
+.ytp_loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.ytWrapper {
+  .plyr {
+    // pointer-events: none;
+    // iframe {
+    //   display: none;
+    // }
+    .plyr__poster {
+      background-size: cover;
+    }
+  }
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.h-full {
+  height: 100%;
+}
+
+.labelPro,
+.bpllabelPro,
+.bplProIdentifier .labelPro,
+.ytpPresetModal .labelPro {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #146ef5 !important;
+  color: #ffffff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  padding: 3px 7px !important;
+  border-radius: 10px !important;
+  text-transform: uppercase !important;
+  margin-left: 5px !important;
+  vertical-align: middle !important;
+  letter-spacing: 0.5px !important;
+}

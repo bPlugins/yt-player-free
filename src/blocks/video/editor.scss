@@ -1,0 +1,29 @@
+$primaryColor: #4527a4;
+
+.wp-block-vpb-video {
+  .vpbVideoPlayer {
+    > video {
+      display: none;
+    }
+  }
+}
+
+
+.labelPro,
+.bpllabelPro,
+.bplProIdentifier .labelPro {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #146ef5 !important;
+  color: #ffffff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  padding: 3px 7px !important;
+  border-radius: 10px !important;
+  text-transform: uppercase !important;
+  margin-left: 5px !important;
+  vertical-align: middle !important;
+  letter-spacing: 0.5px !important;
+}

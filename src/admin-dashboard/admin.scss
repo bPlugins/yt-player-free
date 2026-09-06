@@ -1,0 +1,49 @@
+:root {
+	--bpl-dashboard-primary-color: #0B81EE;
+	--bpl-dashboard-primary-color-rgb: 11, 129, 238;
+	--bpl-dashboard-secondary-color: #8C74FD;
+	--bpl-dashboard-secondary-color-rgb: 140, 116, 253;
+	--bpl-dashboard-title-color: #070127;
+	--bpl-dashboard-title-color-rgb: 7, 1, 39;
+	--bpl-dashboard-content-color: #1b2e4b;
+	--bpl-dashboard-content-color-rgb: 27, 46, 75;
+}
+@import '../../../bpl-tools/Admin/style.scss';
+
+/* Override Welcome Banner Play Button to make it more obvious it's a video */
+.bPlDashboardWelcomeOverview .banner .playBtn {
+	background: var(--bpl-dashboard-primary-color) !important;
+	color: #fff !important;
+	border-radius: 50% !important;
+	width: 60px !important;
+	height: 60px !important;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+	animation: bPlPlayPulseOverride 2s infinite !important;
+
+	svg {
+		width: 32px !important;
+		height: 32px !important;
+		margin-left: 4px !important;
+	}
+
+	&:hover {
+		transform: translate(-50%, -50%) scale(1.1) !important;
+		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+		animation: none !important;
+	}
+}
+
+@keyframes bPlPlayPulseOverride {
+	0% { 
+		box-shadow: 0 0 0 0 rgba(var(--bpl-dashboard-primary-color-rgb), 0.7);
+		transform: translate(-50%, -50%) scale(0.95);
+	}
+	50% { 
+		box-shadow: 0 0 0 15px rgba(var(--bpl-dashboard-primary-color-rgb), 0);
+		transform: translate(-50%, -50%) scale(1.05);
+	}
+	100% { 
+		box-shadow: 0 0 0 0 rgba(var(--bpl-dashboard-primary-color-rgb), 0);
+		transform: translate(-50%, -50%) scale(0.95);
+	}
+}

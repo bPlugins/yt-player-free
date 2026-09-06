@@ -1,0 +1,20 @@
+{
+    "name": "rajud/yt-player",
+    "autoload": {
+      "psr-4": {
+        "YTP\\": "inc/"
+      }
+    },
+    "authors": [
+      {
+        "name": "shehabulislam",
+        "email": "rajudjp28@gmail.com"
+      }
+    ],
+    "require": {
+      "freemius/wordpress-sdk": "^2.13.1"
+    },
+    "config": {
+        "disable-tls": true
+    }
+}

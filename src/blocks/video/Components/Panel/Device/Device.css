@@ -1,0 +1,18 @@
+.advancedOptionssingle-device {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 1px;
+  height: 17px !important;
+  width: 17px !important;
+  display: flex;
+  cursor: pointer;
+}
+.advancedOptionssingle-device.active {
+  border-color: #4527a4 !important;
+}
+.advancedOptionssingle-device > .dashicons.active {
+  color: #4527a4 !important;
+}
+.advancedOptionssingle-device span.dashicons {
+  font-size: 13px;
+}

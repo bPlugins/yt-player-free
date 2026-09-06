@@ -1,0 +1,39 @@
+{
+  "name": "yt-player",
+  "version": "2.1.1",
+  "description": "video player for youtube.",
+  "main": "src/blocks/youtube-player/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "watch": "gulp browser-sync",
+    "start": "wp-scripts start",
+    "sync": "browser-sync start -p localhost/freemius --files ",
+    "preview": "npm-run-all --parallel watch start",
+    "i18n-pot": "wp i18n make-pot . languages/yt-player.pot --exclude=\"build,node_modules,vendor,.git\" && copy .\\languages\\yt-player.pot .\\languages\\yt-player-en_US.po",
+    "i18n-json": "wp i18n make-json languages/ --no-purge",
+    "i18n-mo": "wp i18n make-mo languages/",
+    "i18n": "npm run i18n-pot && npm run i18n-json && npm run i18n-mo",
+    "build": "gulp clean && npm run lint && wp-scripts build && (npm run i18n || echo i18n skipped) && gulp bundle && gulp zip",
+    "make-zip": "gulp clean && npm run lint && wp-scripts build && (npm run i18n || echo i18n skipped) && gulp bundle && gulp zip"
+  },
+  "author": "Md. Shamim Islam",
+  "license": "ISC",
+  "dependencies": {
+    "immer": "^10.1.1",
+    "react-hot-toast": "^2.5.2",
+    "react-loader-spinner": "^6.1.6",
+    "react-router-dom": "^7.2.0",
+    "sweetalert2": "^11.17.2"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^27.9.0",
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.4",
+    "eslint-webpack-plugin": "^4.2.0",
+    "gulp": "^5.0.0",
+    "gulp-cli": "^3.0.0",
+    "gulp-freemius-deploy": "^1.0.11",
+    "gulp-zip": "^6.1.0",
+    "postcss": "^8.5.3"
+  }
+}

@@ -1,0 +1,88 @@
+.ytp_playlist_shortcode {
+  margin-top: 30px;
+  border: 5px solid #4527a4;
+  overflow: hidden;
+}
+.ytp_playlist_shortcode .shortcode-heading {
+  background: #146ef5;
+  padding: 15px;
+  overflow: hidden;
+  color: #ffffff;
+}
+.ytp_playlist_shortcode .shortcode-heading .icon {
+  float: left;
+  overflow: hidden;
+  width: 50%;
+}
+.ytp_playlist_shortcode .shortcode-heading .text {
+  float: right;
+  overflow: hidden;
+  text-align: right;
+}
+.ytp_playlist_shortcode .shortcode-heading .text a {
+  color: #ffffff;
+  display: block;
+  text-decoration: none;
+}
+.ytp_playlist_shortcode .shortcode-left {
+  width: 50%;
+  float: left;
+  overflow: hidden;
+  padding: 20px 0 30px;
+  text-align: center;
+  background: #ffffff;
+  border-right: 5px solid #4527a4;
+  box-sizing: border-box;
+}
+.ytp_playlist_shortcode .shortcode-right {
+  width: 50%;
+  float: left;
+  overflow: hidden;
+  padding: 20px 0 30px;
+  text-align: center;
+  background: #ffffff;
+}
+.ytp_playlist_shortcode .shortcode {
+  padding: 8px 15px;
+  background: #eae6f9;
+  display: inline-block;
+  user-select: all;
+  font-size: 16px;
+}
+
+.ytp_shortcode_box_after_title {
+  display: flex;
+  background: #d3d7db9a;
+  padding: 5px 15px;
+  align-items: center;
+  gap: 15px;
+  border-radius: 3px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+}
+
+.ytp_shortcode_box_after_title label {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.ytp_shortcode_box_after_title .shortcode_area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ytp_shortcode_box_after_title .shortcode_area svg {
+  cursor: pointer;
+}
+
+
+/* Desing upgrade menu */
+.fs-submenu-item.yt-player.pricing.upgrade-mode {
+  background: #39920D;
+  border-radius: 0;
+  color: #ffffff;
+  display: inline-block;
+  padding: 6px 40px 6px 15px;
+}
+

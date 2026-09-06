@@ -1,0 +1,98 @@
+{
+  "options": {
+    "type": "object",
+    "default": {
+      "controls": [
+        "play-large",
+        "play",
+        "progress",
+        "current-time",
+        "duration",
+        "mute",
+        "volume",
+        "fullscreen"
+      ],
+      "repeat": false,
+      "autoplay": false,
+      "muted": false,
+      "clickToPlay": true,
+      "disableContextMenu": true,
+      "resetOnEnd": false,
+      "autoHideControl": true,
+      "seekTime": 10,
+      "ratio": null,
+      "speed": {
+        "selected": 1,
+        "options": [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 4]
+      }
+    }
+  },
+  "radius": {
+    "type": "string",
+    "default": "5px"
+  },
+  "startTime": {
+    "type": "number",
+    "default": 0
+  },
+  "thumbInPause": {
+    "type": "boolean",
+    "default": false
+  },
+  "thumbStyle": {
+    "type": "string",
+    "default": "default"
+  },
+  "endScreen": {
+    "type": "object",
+    "default": {
+      "enabled": false,
+      "text": "",
+      "link": ""
+    }
+  },
+  "hideYoutubeUI": {
+    "type": "boolean",
+    "default": false
+  },
+  "saveState": {
+    "type": "boolean",
+    "default": true
+  },
+  "plyrStyle": {
+    "type": "object",
+    "default": {
+      "borderRadius": "3px",
+      "plyr__control--overlaid": {
+        "padding": {
+          "top": "15px",
+          "right": "15px",
+          "bottom": "15px",
+          "left": "15px"
+        },
+        "borderRadius": "50%",
+        "background": "#00b2ff"
+      },
+      "plyr__control--overlaid svg": {
+        "height": "25px",
+        "width": "25px"
+      }
+    }
+  },
+  "watermark": {
+    "type": "object",
+    "default": {
+      "enabled": false,
+      "text": "Enter your watermark text",
+      "color": "#fff",
+      "backgroundColor": "#303030",
+      "opacity": 70,
+      "position": "top-right",
+      "selector": "watermark"
+    }
+  },
+  "hideControlsWhenPause": {
+    "type": "boolean",
+    "default": false
+  }
+}
