@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, freemius, shamim10
 Tags: plyr, Youtube video player, youtube embed, video player, YouTube
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -95,10 +95,10 @@ This plugin bundles the following third-party JavaScript/PHP libraries.
 * **Purpose:** Provides opt-in usage tracking and analytics to help improve the plugin.
 
 = bpl-tools =
-* Source / GitHub: https://github.com/bPlugins/bpl-tools
-* License: GPL-2.0-or-later – https://www.gnu.org/licenses/gpl-2.0.html
-* Purpose: Shared utility library providing admin dashboard components and common Gutenberg editor controls.
-* External Services: The library may connect to bPlugins, WordPress.org, and Freemius services for product data and checkout functionality. See full details: https://github.com/bPlugins/bpl-tools#external-requests--why-they-are-made
+* **Source / GitHub**: https://github.com/bPlugins/bpl-tools
+* **License**: GPL-2.0-or-later – https://www.gnu.org/licenses/gpl-2.0.html
+* **Purpose**: Shared utility library providing admin dashboard components and common Gutenberg editor controls.
+* **External Services**: The library may connect to bPlugins, WordPress.org, and Freemius services for product data and checkout functionality. See full details: https://github.com/bPlugins/bpl-tools#external-requests--why-they-are-made
 
 
 == Frequently Asked Questions ==
@@ -137,6 +137,9 @@ Please report security bugs found in the source code of the Video Player for You
 
 
 == Changelog ==
+
+= 2.1.2 - 22 Sep, 2026 =
+- **Security**: Added a missing capability check to the preset read endpoint so only administrators can retrieve saved preset configurations, matching the create/delete actions.
 
 = 2.1.1 - 6 Sep, 2026 =
 - **Security**: Hardened player data attributes, shortcode parameters, and AJAX endpoints against XSS with enhanced sanitization and escaping.

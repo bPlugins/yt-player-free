@@ -5,7 +5,7 @@
 [![WordPress Support](https://img.shields.io/badge/WordPress-6.5+-blue.svg?style=flat-square&logo=wordpress)](https://wordpress.org/plugins/yt-player/)
 [![PHP Support](https://img.shields.io/badge/PHP-7.1+-777bb4.svg?style=flat-square&logo=php)](./readme.txt)
 [![GPLv3 License](https://img.shields.io/badge/License-GPLv3-green.svg?style=flat-square)](./readme.txt)
-[![Stable Version](https://img.shields.io/badge/Version-2.1.1-blue.svg?style=flat-square)](./readme.txt)
+[![Stable Version](https://img.shields.io/badge/Version-2.1.2-blue.svg?style=flat-square)](./readme.txt)
 
 **YT Player** is a modern, lightweight, and fully customizable YouTube video player plugin for WordPress. Powered by HTML5 and the Plyr framework, it lets you embed YouTube videos, video playlists, and timeline galleries seamlessly into posts, pages, widget areas, or custom templates using shortcodes or native Gutenberg blocks—no coding required!
 

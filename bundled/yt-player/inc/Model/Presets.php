@@ -66,6 +66,10 @@ class Presets {
     }
 
     function fetchPresets(){
+        if(!current_user_can('manage_options')){
+            return new \WP_Error('forbidden', 'permission denied');
+        }
+
         global $wpdb;
         $table_name =  $wpdb->prefix.$this->table_name;
         $data = $wpdb->get_results("SELECT * FROM $table_name", 'ARRAY_A'); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching

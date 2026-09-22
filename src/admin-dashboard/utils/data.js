@@ -43,6 +43,13 @@ export const dashboardInfo = (info) => {
 
     changelogs: [
       {
+        version: "2.1.2 - 22 Sep, 2026",
+        type: "fix",
+        list: [
+          "<strong>Security:</strong> Added a missing capability check to the preset read endpoint so only administrators can retrieve saved preset configurations, matching the create/delete actions.",
+        ],
+      },
+      {
         version: "2.1.1 - 6 Sep, 2026",
         type: "fix",
         list: [
