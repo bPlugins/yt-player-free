@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     const data = new FormData();
     data.append("action", "ytp_import_data");
+    data.append("nonce", ytpAdmin?.nonce);
     fetch(ytpAdmin?.ajaxUrl, {
       method: "POST",
       body: data,

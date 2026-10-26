@@ -15,7 +15,6 @@ class Ajax{
     private $model;
 
     public function register(){
-        add_action('wp_ajax_nopriv_ytp_import_data', [$this, 'ytp_import_data']);
         add_action('wp_ajax_ytp_import_data', [$this, 'ytp_import_data']);
 
         add_action('wp_ajax_ytp_ajax', [$this, 'prepareAjax']);
@@ -99,9 +98,14 @@ class Ajax{
     }
 
     public function ytp_import_data(){
+        check_ajax_referer('ytp-nonce', 'nonce');
+
+        if(!current_user_can('manage_options')){
+            wp_send_json_error(['message' => 'permission denied'], 403);
+        }
+
         Import::meta();
         Import::option();
-        echo wp_json_encode(["success" => true]);
-        die();
+        wp_send_json_success();
     }
 }

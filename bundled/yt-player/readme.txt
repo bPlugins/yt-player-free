@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, freemius, shamim10
 Tags: plyr, Youtube video player, youtube embed, video player, YouTube
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 2.1.2
+Stable tag: 2.1.3
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -137,6 +137,9 @@ Please report security bugs found in the source code of the Video Player for You
 
 
 == Changelog ==
+
+= 2.1.3 - 26 Oct, 2026 =
+- **Security**: Fixed broken access control in the legacy data import AJAX action — removed unauthenticated access and added nonce verification and an administrator capability check.
 
 = 2.1.2 - 22 Sep, 2026 =
 - **Security**: Added a missing capability check to the preset read endpoint so only administrators can retrieve saved preset configurations, matching the create/delete actions.

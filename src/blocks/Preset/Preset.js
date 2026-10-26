@@ -37,10 +37,15 @@ const Preset = ({ attributes, setAttributes }) => {
   }, []);
 
   useEffect(() => {
-    if (!isLoading && presets && Array.isArray(presets) && presets.length > 0) {
-      if (JSON.stringify(myPresets) !== JSON.stringify(presets)) {
-        setAttributes({ presets });
+    if (!isLoading) {
+      if (presets && Array.isArray(presets) && presets.length > 0) {
+        if (JSON.stringify(myPresets) !== JSON.stringify(presets)) {
+          setAttributes({ presets });
+        }
       }
+      // Mark the fetch as settled so the Presets panel can stop showing its
+      // loading spinner even when the request came back empty or forbidden.
+      setAttributes({ presetsLoaded: true });
     }
   }, [isLoading, presets]);
 

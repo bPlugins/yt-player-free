@@ -30,7 +30,7 @@ import { AdvertiseCard, ProModal } from "../../../../../../../bpl-tools/ProContr
 import { pricingPage } from "../../../utils/functions";
 
 const Settings = ({ setAttributes, attributes, isPremium }) => {
-  const { source, presets = [], brandLogo = {}, brandWidth = {}, brandBorder = {}, customBanner = {} } = attributes;
+  const { source, presets = [], presetsLoaded = false, brandLogo = {}, brandWidth = {}, brandBorder = {}, customBanner = {} } = attributes;
   const { isBrandLogo = false, brandUrl = "", brandPosition = "" } = brandLogo;
   const { isCustomBanner = false, bannerUrl = "" } = customBanner;
 
@@ -267,17 +267,25 @@ const Settings = ({ setAttributes, attributes, isPremium }) => {
                           </>
                         ))
                       ) : (
-                        <RotatingLines
-                          visible={true}
-                          height="96"
-                          width="96"
-                          strokeColor="#00b2ff"
-                          strokeWidth="5"
-                          animationDuration="0.75"
-                          ariaLabel="rotating-lines-loading"
-                          wrapperStyle={{}}
-                          wrapperClass=""
-                        />
+                        <div className="ytp-presets-empty">
+                          {presetsLoaded ? (
+                            <Notice status="info" isIcon={true}>
+                              {__("No presets available. Managing presets requires administrator access.", "yt-player")}
+                            </Notice>
+                          ) : (
+                            <RotatingLines
+                              visible={true}
+                              height="96"
+                              width="96"
+                              strokeColor="#00b2ff"
+                              strokeWidth="5"
+                              animationDuration="0.75"
+                              ariaLabel="rotating-lines-loading"
+                              wrapperStyle={{}}
+                              wrapperClass=""
+                            />
+                          )}
+                        </div>
                       )}
                     </div>
                     <Button

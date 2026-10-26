@@ -43,6 +43,13 @@ export const dashboardInfo = (info) => {
 
     changelogs: [
       {
+        version: "2.1.3 - 26 Oct, 2026",
+        type: "fix",
+        list: [
+          "<strong>Security:</strong> Fixed broken access control in the legacy data import AJAX action — removed unauthenticated access and added nonce verification and an administrator capability check.",
+        ],
+      },
+      {
         version: "2.1.2 - 22 Sep, 2026",
         type: "fix",
         list: [
@@ -63,18 +70,6 @@ export const dashboardInfo = (info) => {
           "<strong>UI/UX:</strong> Reorganized Block Editor inspector sidebar panel titles with intuitive naming (\"Basic Settings\", \"Player Controls\", \"Preset Controls\").",
           "<strong>UI/UX:</strong> Standardized PRO badge styling and feature notice card layouts across settings panels and preset modals.",
           "<strong>Maintenance:</strong> Cleaned up default preset schemas and removed deprecated source files.",
-        ],
-      },
-      {
-        version: "2.1.0 - 29 Aug, 2026",
-        type: "fix",
-        list: [
-          "<strong>Security:</strong> Hardened preset data handling and AJAX endpoint security.",
-          "<strong>Security:</strong> Improved data sanitization and permission verification.",
-          "<strong>Fix:</strong> Resolved quick shortcode URL parsing and player style enqueuing.",
-          "<strong>Fix:</strong> Improved clipboard copy compatibility across HTTP and HTTPS environments.",
-          "<strong>Fix:</strong> Resolved block editor player controls rendering and SVG icon display.",
-          "<strong>Update:</strong> Enhanced UI option consistency and Pro field controls.",
         ],
       }
     ],

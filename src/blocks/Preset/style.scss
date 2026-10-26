@@ -3,6 +3,11 @@
   grid-template-columns: repeat(2, calc(50% - 5px));
   gap: 10px;
   margin-bottom: 15px;
+  .ytp-presets-empty {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+  }
   .ytp-preset-item {
     row-gap: 10px;
     position: relative;
