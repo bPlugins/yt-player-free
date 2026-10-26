@@ -2,8 +2,6 @@ const gulp = require("gulp");
 const zip = require("gulp-zip").default || require("gulp-zip");
 const del = require("del");
 const browserSync = require('browser-sync').create();
-const fs = require("fs");
-
 
 
 gulp.task("clean", () => {
