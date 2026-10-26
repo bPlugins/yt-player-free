@@ -43,6 +43,13 @@ export const dashboardInfo = (info) => {
 
     changelogs: [
       {
+        version: "2.1.4 - 26 Oct, 2026",
+        type: "fix",
+        list: [
+          "<strong>Security:</strong> Moved the preset-read authorization check to the AJAX dispatcher so every action on the preset data model (including get/getPreset) requires administrator access, not just the previously-covered methods.",
+        ],
+      },
+      {
         version: "2.1.3 - 26 Oct, 2026",
         type: "fix",
         list: [
