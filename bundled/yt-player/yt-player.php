@@ -3,7 +3,7 @@
  * Plugin Name: Video Player for YouTube – Embed Videos Your Visitors Will Love to Watch
  * Plugin URI:  http://bplugins.com
  * Description: A simple, accessible, fully customizable & user friendly YouTube Video Player for Wordpress.
- * Version: 2.1.3
+ * Version: 2.1.4
  * Author: bPlugins
  * Author URI: https://bplugins.com
  * License: GPLv3
@@ -26,7 +26,7 @@ if (function_exists('ytp_fs')) {
         define('YTP_DIR_PATH', plugin_dir_path(__FILE__));
     }
     if (!defined('YTP_PLUGIN_VERSION')) {
-        define('YTP_PLUGIN_VERSION', (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost') ? time() : '2.1.3');
+        define('YTP_PLUGIN_VERSION', (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost') ? time() : '2.1.4');
     }
     if (!defined('YTP_IMPORT_VER')) {
         define('YTP_IMPORT_VER', '1.0.0');

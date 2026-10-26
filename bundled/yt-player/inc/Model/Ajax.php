@@ -62,7 +62,15 @@ class Ajax{
         $this->requestModel = $this->isset($data, 'model', 'Model');
         $this->requestMethod = $this->isset($data, 'method', 'invalid');
         $this->model = $this->namespace.$this->requestModel;
-        
+
+        // Presets store/expose site-wide configuration. Gate every action on this
+        // model here at the dispatcher, not inside individual methods, so a future
+        // read/write method can't accidentally be added without the same check.
+        $adminOnlyModels = array('Presets');
+        if (in_array($this->requestModel, $adminOnlyModels, true) && !current_user_can('manage_options')) {
+            return new \WP_Error('forbidden', 'permission denied');
+        }
+
         unset($this->params['method']);
         unset($this->params['action']);
         unset($this->params['nonce']);
