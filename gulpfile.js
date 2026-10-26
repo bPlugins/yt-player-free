@@ -29,12 +29,12 @@ exports.bundle = () => {
       "!readme.md",
       "!webpack.config copy.js",
       "!webpack.config.js",
-    ])
+    ], { encoding: false })
     .pipe(gulp.dest("bundled/yt-player"));
 };
 
 exports.zip = () => {
-  return gulp.src(["bundled/**"]).pipe(zip("yt-player.zip")).pipe(gulp.dest("zip"));
+  return gulp.src(["bundled/**"], { encoding: false }).pipe(zip("yt-player.zip")).pipe(gulp.dest("zip"));
 };
 
 
