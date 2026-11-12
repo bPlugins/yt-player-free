@@ -19,6 +19,13 @@ const YouTube = ({ attributes, className, preset }) => {
   const [isClosed, setIsClosed] = useState(false);
   const [showPoster, setShowPoster] = useState(false);
   const isPremium = typeof window.ytpPlayer !== "undefined" && window.ytpPlayer !== null ? Boolean(window.ytpPlayer.is_premium) : false;
+  // render.php falls back to the Default preset (id 1) whenever presetID is
+  // empty, so preset?.preset is always populated even when the user never
+  // actually chose a preset. Only let the preset's own values override the
+  // block's own attributes when a preset was genuinely selected - otherwise
+  // the Default preset's stored values (e.g. its own controls list) silently
+  // win over the block's explicit attributes.
+  const hasSelectedPreset = Boolean(attributes.presetID);
 
   const containerRef = useRef(null);
   const playerRef = useRef(null);
@@ -133,7 +140,7 @@ const YouTube = ({ attributes, className, preset }) => {
       }
     }
 
-    const rawOptions = preset?.preset?.options || attributes?.options || {};
+    const rawOptions = (hasSelectedPreset && preset?.preset?.options) || attributes?.options || {};
     const proControls = ["restart", "rewind", "fast-forward"];
     const rawControls = rawOptions.controls || [];
     const filteredControls = isPremium
@@ -300,7 +307,7 @@ const YouTube = ({ attributes, className, preset }) => {
     setIsClosed(true);
   };
 
-  const rawHideYoutubeUI = preset?.preset?.hideYoutubeUI !== undefined ? preset.preset.hideYoutubeUI : attributes.hideYoutubeUI;
+  const rawHideYoutubeUI = (hasSelectedPreset && preset?.preset?.hideYoutubeUI !== undefined) ? preset.preset.hideYoutubeUI : attributes.hideYoutubeUI;
   const isHideYoutubeUI = isPremium && (rawHideYoutubeUI === true || rawHideYoutubeUI === "true" || rawHideYoutubeUI == "1");
 
   if (!source) return null;
@@ -317,7 +324,7 @@ const YouTube = ({ attributes, className, preset }) => {
       <style>{attributes.CSS}</style>
 
       <div
-        className={`ytWrapper ${isFloating ? "floating-player" : ""} ${isHideYoutubeUI ? "hideYoutubeUI" : ""} ${(preset?.preset?.hideControlsWhenPause !== undefined ? (preset.preset.hideControlsWhenPause == "1" || preset.preset.hideControlsWhenPause === true) : attributes.hideControlsWhenPause)
+        className={`ytWrapper ${isFloating ? "floating-player" : ""} ${isHideYoutubeUI ? "hideYoutubeUI" : ""} ${(hasSelectedPreset && preset?.preset?.hideControlsWhenPause !== undefined ? (preset.preset.hideControlsWhenPause == "1" || preset.preset.hideControlsWhenPause === true) : attributes.hideControlsWhenPause)
             ? "hideControlsWhenPause"
             : ""
           } `}

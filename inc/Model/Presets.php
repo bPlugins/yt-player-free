@@ -15,7 +15,21 @@ class Presets {
 
         $args = array_intersect_key($args, array_flip(['id', 'name', 'preset']));
 
-        $args['preset'] = maybe_serialize( $args['preset']);
+        // The AJAX dispatcher always hands this raw $_POST data, so a JSON-encoded
+        // preset string arrives slashed (quotes escaped as \") and must be
+        // unslashed and decoded into a real array before maybe_serialize() can
+        // store it the same way the natively-seeded Default preset is stored -
+        // otherwise it's saved as inert escaped text that never unserializes
+        // back into structured data (every field inside it, e.g. hideYoutubeUI,
+        // then silently fails to apply).
+        $preset = $args['preset'] ?? null;
+        if ( is_string( $preset ) ) {
+            $decoded = json_decode( wp_unslash( $preset ), true );
+            if ( json_last_error() === JSON_ERROR_NONE ) {
+                $preset = $decoded;
+            }
+        }
+        $args['preset'] = maybe_serialize( $preset );
 
         if(!isset($args['id'])){
             $wpdb->insert($table_name, $args); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
@@ -27,6 +41,15 @@ class Presets {
     }
 
     public function get($id){
+        // The AJAX dispatcher calls every model method with the full params
+        // array (e.g. ['id' => '6']), not a bare scalar, so without this an
+        // array falls through to intval() below and resolves to 1 every time -
+        // silently always returning the first/default preset regardless of
+        // which id was actually requested.
+        if ( is_array( $id ) ) {
+            $id = $id['id'] ?? null;
+        }
+
         global $wpdb;
         $table_name = $wpdb->prefix.$this->table_name;
         $result = $wpdb->get_row($wpdb->prepare( "SELECT * FROM $table_name WHERE id = %d", intval($id))); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
@@ -47,6 +70,19 @@ class Presets {
        foreach($result as $key => $value){
         $tempItem[$key] = maybe_unserialize( $value );
        }
+
+       // Presets saved before the createOrUpdate() decode fix were stored as a
+       // raw (slashed) JSON string rather than a proper serialized array, so
+       // maybe_unserialize() above leaves them as plain text. Fall back to
+       // decoding that text here so already-saved presets keep working instead
+       // of silently losing every option (hideYoutubeUI, controls, etc.).
+       if ( isset( $tempItem['preset'] ) && is_string( $tempItem['preset'] ) ) {
+           $decoded = json_decode( $tempItem['preset'], true );
+           if ( json_last_error() === JSON_ERROR_NONE ) {
+               $tempItem['preset'] = $decoded;
+           }
+       }
+
        return $tempItem;
     }
 
@@ -76,6 +112,15 @@ class Presets {
         foreach($data as $index => $item){
             foreach($item as $key => $value ){
                 $data[$index][$key] = maybe_unserialize( $data[$index][$key] );
+            }
+
+            // See get(): presets saved before the createOrUpdate() decode fix
+            // were stored as raw JSON text, not a serialized array.
+            if ( isset( $data[$index]['preset'] ) && is_string( $data[$index]['preset'] ) ) {
+                $decoded = json_decode( $data[$index]['preset'], true );
+                if ( json_last_error() === JSON_ERROR_NONE ) {
+                    $data[$index]['preset'] = $decoded;
+                }
             }
         }
         return $data;

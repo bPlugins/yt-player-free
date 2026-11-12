@@ -64,10 +64,17 @@
   }
 }
 
-.hideYoutubeUI .plyr {
-  iframe {
-    height: 200% !important;
-    top: -50% !important;
+.hideYoutubeUI {
+  // The oversized/shifted iframe below only hides YouTube's UI (title bar,
+  // Share button, etc.) if its overflow is clipped - without this the iframe
+  // just renders past the wrapper's edges and that UI stays visible.
+  overflow: hidden;
+
+  .plyr {
+    iframe {
+      height: 200% !important;
+      top: -50% !important;
+    }
   }
 }
 

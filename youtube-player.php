@@ -33,6 +33,11 @@ if (!class_exists('YTPPlugin')) {
 
             wp_localize_script('yt-player-video-editor-script', 'ytpPlayer', $localized_data);
             wp_localize_script('yt-player-parent-editor-script', 'ytpPlayer', $localized_data);
+
+            // The frontend view script reads window.ytpPlayer too, but it was
+            // never localized for that handle, so premium-gated frontend
+            // behavior silently never activated once the block was viewed.
+            wp_localize_script('yt-player-video-view-script', 'ytpPlayer', $localized_data);
         }
     }
     new YTPPlugin();
