@@ -1,6 +1,6 @@
 {
   "name": "yt-player",
-  "version": "2.1.6",
+  "version": "2.1.5",
   "description": "video player for youtube.",
   "main": "src/blocks/youtube-player/index.js",
   "scripts": {
