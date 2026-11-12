@@ -7,7 +7,7 @@ import Settings from "../Backend/Settings/Settings";
 import Preset from "/src/blocks/Preset/Preset";
 
 import { useState } from "react";
-import { RotatingLines } from "react-loader-spinner";
+import RotatingLines from "../Common/RotatingLines";
 import Styles from "../Common/Styles";
 import YouTube from "../Common/YouTube";
 

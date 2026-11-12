@@ -21,7 +21,7 @@ import { BUnitControl } from "../../../../../../../wp-utils/v1/components";
 
 import { useWPAjaxMutation } from "../../../../../../../wp-utils/v1/hooks";
 
-import { RotatingLines } from 'react-loader-spinner';
+import RotatingLines from "../../Common/RotatingLines";
 import { Device, InlineMediaUpload, Label, Notice } from "../../../../../../../bpl-tools/Components";
 import { tabController, updateData } from "../../../../../../../bpl-tools/utils/functions";
 import { generalStyleTabs } from "../../../utils/options";

@@ -141,6 +141,7 @@ Please report security bugs found in the source code of the Video Player for You
 = 2.1.5 - 12 Nov, 2026 =
 - **Fix**: Resolved an issue where "Hide YouTube UI" and player controls (e.g. the progress bar) could be silently overridden by the Default preset on videos that never had a preset selected, instead of honoring the player's own settings.
 - **Update**: Updated the Freemius SDK to the latest version (2.13.5).
+- **Improvement**: Replaced a third-party loading-spinner dependency with a lightweight built-in version and tidied up code annotations, resolving issues flagged by the WordPress Plugin Check tool.
 
 = 2.1.4 - 26 Oct, 2026 =
 - **Security**: Moved the preset-read authorization check to the AJAX dispatcher so every action on the preset data model (including `get`/`getPreset`) requires administrator access, not just the previously-covered methods.
