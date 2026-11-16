@@ -1,5 +1,5 @@
 <?php
-namespace YTP\Admin;
+namespace YTP\Admin; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -77,21 +77,21 @@ class YT_Player_PromoBanner {
 			}
 		}
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		if ( isset( $_GET['post_type'] ) && 'ytplayer' === sanitize_key( $_GET['post_type'] ) ) {
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended
+		if ( isset( $_GET['post_type'] ) && 'ytplayer' === sanitize_key( wp_unslash( $_GET['post_type'] ) ) ) {
 			return true;
 		}
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( isset( $_GET['page'] ) ) {
-			$page = sanitize_key( $_GET['page'] );
+			$page = sanitize_key( wp_unslash( $_GET['page'] ) );
 			if ( in_array( $page, array( 'dashboard', 'ytp_options' ), true ) ) {
 				// Only if post_type is ytplayer or hook relates to ytplayer
-				if ( ( isset( $_GET['post_type'] ) && 'ytplayer' === sanitize_key( $_GET['post_type'] ) ) || ( $screen && ( 'ytplayer' === $screen->post_type || strpos( $screen->id, 'ytplayer' ) !== false ) ) ) {
+				if ( ( isset( $_GET['post_type'] ) && 'ytplayer' === sanitize_key( wp_unslash( $_GET['post_type'] ) ) ) || ( $screen && ( 'ytplayer' === $screen->post_type || strpos( $screen->id, 'ytplayer' ) !== false ) ) ) {
 					return true;
 				}
 			}
 		}
+		// phpcs:enable WordPress.Security.NonceVerification.Recommended
 
 		return false;
 	}
