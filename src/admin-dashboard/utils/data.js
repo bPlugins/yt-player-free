@@ -43,6 +43,13 @@ export const dashboardInfo = (info) => {
 
     changelogs: [
       {
+        version: "2.1.6 - 17 Nov, 2026",
+        type: 'enhancement',
+        list: [
+            '<strong>Enhancement:</strong> Added Black Friday promotional banner and campaign notices.'
+        ]
+      },
+      {
         version: "2.1.5 - 12 Nov, 2026",
         type: "fix",
         list: [
