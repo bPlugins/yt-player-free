@@ -32,6 +32,7 @@ export const dashboardInfo = (info) => {
       landing: `https://bplugins.com/products/${slug}/`,
       docs: `https://bplugins.com/docs/${slug}/`,
       pricing: `https://bplugins.com/products/${slug}/pricing`,
+			featureRequest: `https://bplugins.com/products/${slug}/roadmap-and-ideas/`
     },
     freemius: {
       product_id: 5836,
