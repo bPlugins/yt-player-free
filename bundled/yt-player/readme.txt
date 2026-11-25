@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, freemius, shamim10
 Tags: plyr, Youtube video player, youtube embed, video player, YouTube
 Requires at least: 6.5
 Tested up to: 7.1
-Stable tag: 2.1.6
+Stable tag: 2.1.7
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -137,6 +137,9 @@ Please report security bugs found in the source code of the Video Player for You
 
 
 == Changelog ==
+
+= 2.1.7 - 25 Nov, 2026 =
+- **Fix**: Fixed the `[ytp]` shortcode's YouTube URL/ID parser so video IDs containing a lowercase "s" are no longer rejected (e.g. `DiRznsCByrA`), which previously caused the player to render with an empty video ID.
 
 = 2.1.6 - 17 Nov, 2026 =
 * **Enhancement:** Added Black Friday promotional banner and campaign notices.

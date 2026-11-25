@@ -24,7 +24,7 @@ class Shortcode {
     
         $raw_content = trim(wp_strip_all_tags($content));
         $video_id = '';
-        if (preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/s]{11})/', $raw_content, $matches)) {
+        if (preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([A-Za-z0-9_-]{11})(?![A-Za-z0-9_-])/', $raw_content, $matches)) {
             $video_id = $matches[1];
         } else if (preg_match('/^[a-zA-Z0-9_-]{11}$/', $raw_content)) {
             $video_id = $raw_content;

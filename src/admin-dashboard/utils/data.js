@@ -43,6 +43,13 @@ export const dashboardInfo = (info) => {
 
     changelogs: [
       {
+        version: "2.1.7 - 25 Nov, 2026",
+        type: "fix",
+        list: [
+          "<strong>Fix:</strong> Fixed the [ytp] shortcode's YouTube URL/ID parser so video IDs containing a lowercase \"s\" are no longer rejected, which previously caused the player to render with an empty video ID.",
+        ],
+      },
+      {
         version: "2.1.6 - 17 Nov, 2026",
         type: 'enhancement',
         list: [
